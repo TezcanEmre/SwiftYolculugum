@@ -49,6 +49,7 @@ class ViewController: UIViewController {
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
+        //Bu kod sayesinde textfield larda açılan klavyeyi kapatmak için herhangi bir boşluğa tıklamam yeterli.
         
     }
     @IBAction func deleteButtonClick(_ sender: Any) {
