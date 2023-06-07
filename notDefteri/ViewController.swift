@@ -47,7 +47,9 @@ class ViewController: UIViewController {
         systemMessage1.addAction(okButton1)
         self.present(systemMessage1, animated: true, completion: nil)
     }
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
     @IBAction func deleteButtonClick(_ sender: Any) {
         
         let systemMessage2 = UIAlertController(title: "Sistem Mesaji", message: "Veriler silindi!", preferredStyle: UIAlertController.Style.alert) //verilerin silindigine dair uyari
