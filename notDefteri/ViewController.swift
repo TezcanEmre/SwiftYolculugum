@@ -56,7 +56,7 @@ class ViewController: UIViewController {
         
         let systemMessage2 = UIAlertController(title: "Sistem Mesaji", message: "Veriler silindi!", preferredStyle: UIAlertController.Style.alert) //verilerin silindigine dair uyari
         
-        let okButton2 = UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default) { (UIAlertAction) in
+        let okButton2 = UIAlertAction(title: "Tamam", style: UIAlertAction.Style.destructive) { (UIAlertAction) in
             print("buton tiklandi") } //uyari penceresini kapatan fonksiyon, buton tiklandi yazisi terminalde gozukuyor
         systemMessage2.addAction(okButton2)
         self.present(systemMessage2, animated: true, completion: nil)
