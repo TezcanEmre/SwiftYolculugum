@@ -14,6 +14,7 @@
 		EC579A422A3BBEA000691F0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC579A412A3BBEA000691F0E /* Assets.xcassets */; };
 		EC579A452A3BBEA000691F0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC579A432A3BBEA000691F0E /* LaunchScreen.storyboard */; };
 		EC579A4D2A3BBFC900691F0E /* secondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC579A4C2A3BBFC900691F0E /* secondViewController.swift */; };
+		ECE57B9A2A415D1A0064DA06 /* thirthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE57B992A415D1A0064DA06 /* thirthViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		EC579A442A3BBEA000691F0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC579A462A3BBEA000691F0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC579A4C2A3BBFC900691F0E /* secondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondViewController.swift; sourceTree = "<group>"; };
+		ECE57B992A415D1A0064DA06 /* thirthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thirthViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				EC579A3A2A3BBE9F00691F0E /* SceneDelegate.swift */,
 				EC579A3C2A3BBE9F00691F0E /* ViewController.swift */,
 				EC579A4C2A3BBFC900691F0E /* secondViewController.swift */,
+				ECE57B992A415D1A0064DA06 /* thirthViewController.swift */,
 				EC579A3E2A3BBE9F00691F0E /* Main.storyboard */,
 				EC579A412A3BBEA000691F0E /* Assets.xcassets */,
 				EC579A432A3BBEA000691F0E /* LaunchScreen.storyboard */,
@@ -145,6 +148,7 @@
 				EC579A3D2A3BBE9F00691F0E /* ViewController.swift in Sources */,
 				EC579A392A3BBE9F00691F0E /* AppDelegate.swift in Sources */,
 				EC579A3B2A3BBE9F00691F0E /* SceneDelegate.swift in Sources */,
+				ECE57B9A2A415D1A0064DA06 /* thirthViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
