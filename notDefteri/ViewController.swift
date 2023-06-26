@@ -69,7 +69,7 @@ class ViewController: UIViewController {
             UserDefaults.standard.removeObject(forKey: "secondInput")
         }
         firstLine.text = ""
-        secondLine.text = "."
+        secondLine.text = ""
     }
     
 }
