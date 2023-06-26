@@ -8,6 +8,13 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    var aircrafts = [String]()
+    var acImagesName = [String]()
+    var userSelection = ""
+    var userSelection2 = ""
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return aircrafts.count
     }
@@ -25,12 +32,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    @IBOutlet weak var tableView: UITableView!
-    var aircrafts = [String]()
-    var acImagesName = [String]()
-
-    
-    
+   
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +45,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         aircrafts.append("Boeing 777")
         aircrafts.append("Boeing 787 Dreamliner")
         aircrafts.append("Airbus A340")
+        
         acImagesName.append("korean737")
         acImagesName.append("lot737max")
         acImagesName.append("luft747")
@@ -50,6 +53,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         acImagesName.append("eth787")
         acImagesName.append("thyA340")
         
+                
+    }
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+         userSelection = aircrafts[indexPath.row]
+         userSelection2 = acImagesName[indexPath.row]
+        performSegue(withIdentifier: "tosecondVC", sender: nil)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "tosecondVC" {
+            let destinationVC = segue.destination as! secondViewController
+            destinationVC.choosenAC = userSelection
+            destinationVC.choosenACimage = userSelection2
+        }
     }
 
 
