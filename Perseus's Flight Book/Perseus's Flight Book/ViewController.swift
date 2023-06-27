@@ -55,7 +55,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
                 
     }
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
          userSelection = aircrafts[indexPath.row]
          userSelection2 = acImagesName[indexPath.row]
         performSegue(withIdentifier: "tosecondVC", sender: nil)
