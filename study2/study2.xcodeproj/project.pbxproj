@@ -7,13 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		ECB36D432A50675E00A40CD2 /* Inheritance.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB36D422A50675E00A40CD2 /* Inheritance.swift */; };
-		ECD295BC2A4A760400CF4582 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD295BB2A4A760400CF4582 /* main.swift */; };
-		ECD295C32A4A7C0800CF4582 /* class.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD295C22A4A7C0800CF4582 /* class.swift */; };
+		ECB36D532A5090D300A40CD2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB36D522A5090D300A40CD2 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		ECD295B62A4A760400CF4582 /* CopyFiles */ = {
+		ECB36D4D2A5090D300A40CD2 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -25,14 +23,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		ECB36D422A50675E00A40CD2 /* Inheritance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inheritance.swift; sourceTree = "<group>"; };
-		ECD295B82A4A760400CF4582 /* OOP Train */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "OOP Train"; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECD295BB2A4A760400CF4582 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		ECD295C22A4A7C0800CF4582 /* class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = class.swift; sourceTree = "<group>"; };
+		ECB36D4F2A5090D300A40CD2 /* study2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = study2; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECB36D522A5090D300A40CD2 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		ECD295B52A4A760400CF4582 /* Frameworks */ = {
+		ECB36D4C2A5090D300A40CD2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,68 +38,66 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		ECD295AF2A4A760400CF4582 = {
+		ECB36D462A5090D300A40CD2 = {
 			isa = PBXGroup;
 			children = (
-				ECD295BA2A4A760400CF4582 /* OOP Train */,
-				ECD295B92A4A760400CF4582 /* Products */,
+				ECB36D512A5090D300A40CD2 /* study2 */,
+				ECB36D502A5090D300A40CD2 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		ECD295B92A4A760400CF4582 /* Products */ = {
+		ECB36D502A5090D300A40CD2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ECD295B82A4A760400CF4582 /* OOP Train */,
+				ECB36D4F2A5090D300A40CD2 /* study2 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		ECD295BA2A4A760400CF4582 /* OOP Train */ = {
+		ECB36D512A5090D300A40CD2 /* study2 */ = {
 			isa = PBXGroup;
 			children = (
-				ECD295BB2A4A760400CF4582 /* main.swift */,
-				ECD295C22A4A7C0800CF4582 /* class.swift */,
-				ECB36D422A50675E00A40CD2 /* Inheritance.swift */,
+				ECB36D522A5090D300A40CD2 /* main.swift */,
 			);
-			path = "OOP Train";
+			path = study2;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		ECD295B72A4A760400CF4582 /* OOP Train */ = {
+		ECB36D4E2A5090D300A40CD2 /* study2 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ECD295BF2A4A760400CF4582 /* Build configuration list for PBXNativeTarget "OOP Train" */;
+			buildConfigurationList = ECB36D562A5090D300A40CD2 /* Build configuration list for PBXNativeTarget "study2" */;
 			buildPhases = (
-				ECD295B42A4A760400CF4582 /* Sources */,
-				ECD295B52A4A760400CF4582 /* Frameworks */,
-				ECD295B62A4A760400CF4582 /* CopyFiles */,
+				ECB36D4B2A5090D300A40CD2 /* Sources */,
+				ECB36D4C2A5090D300A40CD2 /* Frameworks */,
+				ECB36D4D2A5090D300A40CD2 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "OOP Train";
-			productName = "OOP Train";
-			productReference = ECD295B82A4A760400CF4582 /* OOP Train */;
+			name = study2;
+			productName = study2;
+			productReference = ECB36D4F2A5090D300A40CD2 /* study2 */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		ECD295B02A4A760400CF4582 /* Project object */ = {
+		ECB36D472A5090D300A40CD2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
-					ECD295B72A4A760400CF4582 = {
+					ECB36D4E2A5090D300A40CD2 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
 				};
 			};
-			buildConfigurationList = ECD295B32A4A760400CF4582 /* Build configuration list for PBXProject "OOP Train" */;
+			buildConfigurationList = ECB36D4A2A5090D300A40CD2 /* Build configuration list for PBXProject "study2" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -111,31 +105,29 @@
 				en,
 				Base,
 			);
-			mainGroup = ECD295AF2A4A760400CF4582;
-			productRefGroup = ECD295B92A4A760400CF4582 /* Products */;
+			mainGroup = ECB36D462A5090D300A40CD2;
+			productRefGroup = ECB36D502A5090D300A40CD2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				ECD295B72A4A760400CF4582 /* OOP Train */,
+				ECB36D4E2A5090D300A40CD2 /* study2 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		ECD295B42A4A760400CF4582 /* Sources */ = {
+		ECB36D4B2A5090D300A40CD2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECD295C32A4A7C0800CF4582 /* class.swift in Sources */,
-				ECD295BC2A4A760400CF4582 /* main.swift in Sources */,
-				ECB36D432A50675E00A40CD2 /* Inheritance.swift in Sources */,
+				ECB36D532A5090D300A40CD2 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		ECD295BD2A4A760400CF4582 /* Debug */ = {
+		ECB36D542A5090D300A40CD2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -195,7 +187,7 @@
 			};
 			name = Debug;
 		};
-		ECD295BE2A4A760400CF4582 /* Release */ = {
+		ECB36D552A5090D300A40CD2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -248,7 +240,7 @@
 			};
 			name = Release;
 		};
-		ECD295C02A4A760400CF4582 /* Debug */ = {
+		ECB36D572A5090D300A40CD2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -259,7 +251,7 @@
 			};
 			name = Debug;
 		};
-		ECD295C12A4A760400CF4582 /* Release */ = {
+		ECB36D582A5090D300A40CD2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -273,25 +265,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		ECD295B32A4A760400CF4582 /* Build configuration list for PBXProject "OOP Train" */ = {
+		ECB36D4A2A5090D300A40CD2 /* Build configuration list for PBXProject "study2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				ECD295BD2A4A760400CF4582 /* Debug */,
-				ECD295BE2A4A760400CF4582 /* Release */,
+				ECB36D542A5090D300A40CD2 /* Debug */,
+				ECB36D552A5090D300A40CD2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ECD295BF2A4A760400CF4582 /* Build configuration list for PBXNativeTarget "OOP Train" */ = {
+		ECB36D562A5090D300A40CD2 /* Build configuration list for PBXNativeTarget "study2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				ECD295C02A4A760400CF4582 /* Debug */,
-				ECD295C12A4A760400CF4582 /* Release */,
+				ECB36D572A5090D300A40CD2 /* Debug */,
+				ECB36D582A5090D300A40CD2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = ECD295B02A4A760400CF4582 /* Project object */;
+	rootObject = ECB36D472A5090D300A40CD2 /* Project object */;
 }

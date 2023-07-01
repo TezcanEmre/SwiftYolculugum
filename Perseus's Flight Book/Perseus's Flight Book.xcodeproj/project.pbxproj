@@ -14,6 +14,7 @@
 		EC456A072A4A126F00563F63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC456A062A4A126F00563F63 /* Assets.xcassets */; };
 		EC456A0A2A4A126F00563F63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC456A082A4A126F00563F63 /* LaunchScreen.storyboard */; };
 		EC456A122A4A12E600563F63 /* secondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC456A112A4A12E600563F63 /* secondViewController.swift */; };
+		ECB36D452A506D9D00A40CD2 /* thirtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB36D442A506D9D00A40CD2 /* thirtViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		EC456A092A4A126F00563F63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC456A0B2A4A126F00563F63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC456A112A4A12E600563F63 /* secondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondViewController.swift; sourceTree = "<group>"; };
+		ECB36D442A506D9D00A40CD2 /* thirtViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thirtViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				EC4569FF2A4A126E00563F63 /* SceneDelegate.swift */,
 				EC456A012A4A126E00563F63 /* ViewController.swift */,
 				EC456A112A4A12E600563F63 /* secondViewController.swift */,
+				ECB36D442A506D9D00A40CD2 /* thirtViewController.swift */,
 				EC456A032A4A126E00563F63 /* Main.storyboard */,
 				EC456A062A4A126F00563F63 /* Assets.xcassets */,
 				EC456A082A4A126F00563F63 /* LaunchScreen.storyboard */,
@@ -144,6 +147,7 @@
 				EC456A122A4A12E600563F63 /* secondViewController.swift in Sources */,
 				EC456A022A4A126E00563F63 /* ViewController.swift in Sources */,
 				EC4569FE2A4A126E00563F63 /* AppDelegate.swift in Sources */,
+				ECB36D452A506D9D00A40CD2 /* thirtViewController.swift in Sources */,
 				EC456A002A4A126E00563F63 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

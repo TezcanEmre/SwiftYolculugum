@@ -4,7 +4,7 @@
 //
 //  Created by Tezcan on 27.06.2023.
 //
-//enum using for make groups, for more detail(Turkish): https://hasanalidev.medium.com/swift-enum-yapısı-c1d9b22b0d96
+//enum using for make groups, (ratings and restrictions) for more detail(Turkish): https://hasanalidev.medium.com/swift-enum-yapısı-c1d9b22b0d96
 
 import Foundation
 enum studentType {

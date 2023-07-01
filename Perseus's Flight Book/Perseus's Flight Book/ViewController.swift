@@ -45,6 +45,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         aircrafts.append("Boeing 777")
         aircrafts.append("Boeing 787 Dreamliner")
         aircrafts.append("Airbus A340")
+        aircrafts.append("Airbus A320 Series (CEO)")
+        aircrafts.append("Airbus A321 Series (NEO)")
         
         acImagesName.append("korean737")
         acImagesName.append("lot737max")
@@ -52,6 +54,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         acImagesName.append("THY777")
         acImagesName.append("eth787")
         acImagesName.append("thyA340")
+        acImagesName.append("brA320CEO")
+        acImagesName.append("nzA321NEO")
         
                 
     }
