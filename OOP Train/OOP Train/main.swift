@@ -7,7 +7,7 @@
 
 import Foundation
 
-let ahmet = studens(name: "Ahmet", surname: "Cakir", vize: 85, final: 78, type: .sayisal) //tek satirda hem init cagirildi hem veriler atandi
+let ahmet = studens(name: "Ahmet", surname: "Cakir", vize: 85, final: 78, type: .sayisal) 
 
 print(ahmet.name)
 print(ahmet.surname)
