@@ -14,6 +14,7 @@
 		ECB36DB62A50CDB800A40CD2 /* shopping_list.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ECB36DB42A50CDB800A40CD2 /* shopping_list.xcdatamodeld */; };
 		ECB36DB82A50CDB900A40CD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECB36DB72A50CDB900A40CD2 /* Assets.xcassets */; };
 		ECB36DBB2A50CDB900A40CD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECB36DB92A50CDB900A40CD2 /* LaunchScreen.storyboard */; };
+		ECB36DC32A50EC2A00A40CD2 /* secondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB36DC22A50EC2A00A40CD2 /* secondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		ECB36DB72A50CDB900A40CD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECB36DBA2A50CDB900A40CD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECB36DBC2A50CDB900A40CD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECB36DC22A50EC2A00A40CD2 /* secondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				ECB36DAB2A50CDB800A40CD2 /* AppDelegate.swift */,
 				ECB36DAD2A50CDB800A40CD2 /* SceneDelegate.swift */,
 				ECB36DAF2A50CDB800A40CD2 /* ViewController.swift */,
+				ECB36DC22A50EC2A00A40CD2 /* secondViewController.swift */,
 				ECB36DB12A50CDB800A40CD2 /* Main.storyboard */,
 				ECB36DB72A50CDB900A40CD2 /* Assets.xcassets */,
 				ECB36DB92A50CDB900A40CD2 /* LaunchScreen.storyboard */,
@@ -144,6 +147,7 @@
 				ECB36DB02A50CDB800A40CD2 /* ViewController.swift in Sources */,
 				ECB36DB62A50CDB800A40CD2 /* shopping_list.xcdatamodeld in Sources */,
 				ECB36DAC2A50CDB800A40CD2 /* AppDelegate.swift in Sources */,
+				ECB36DC32A50EC2A00A40CD2 /* secondViewController.swift in Sources */,
 				ECB36DAE2A50CDB800A40CD2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
