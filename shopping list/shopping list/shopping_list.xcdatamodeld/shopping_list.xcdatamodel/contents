@@ -3,7 +3,7 @@
     <entity name="Shopping" representedClassName="Shopping" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="image" optional="YES" attributeType="Binary"/>
-        <attribute name="price" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="price" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="product" optional="YES" attributeType="String"/>
         <attribute name="seller" optional="YES" attributeType="String"/>
     </entity>
