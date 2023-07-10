@@ -18,7 +18,9 @@ class ViewController: UIViewController, UITabBarDelegate, UITableViewDelegate, U
         cell.textLabel?.text = brandArray[indexPath.row]
         return cell
     }
-    func dataFetch() {
+    @objc func dataFetch() {
+        brandArray.removeAll(keepingCapacity: false)
+        idArray.removeAll(keepingCapacity: false)
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Shopping")
@@ -52,6 +54,10 @@ class ViewController: UIViewController, UITabBarDelegate, UITableViewDelegate, U
         navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(addButtonClicked))
         dataFetch()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(dataFetch), name: NSNotification.Name(rawValue: "dataSend"), object: nil)
+    }
+   
     @objc func addButtonClicked() {
         performSegue(withIdentifier: "toSecondVC", sender: nil)
         

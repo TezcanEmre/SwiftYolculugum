@@ -62,6 +62,8 @@ class secondViewController: UIViewController, UIImagePickerControllerDelegate, U
         print("hata")
         
         }
+        NotificationCenter.default.post(name: NSNotification.Name("dataSend"), object: nil)
+        self.navigationController?.popViewController(animated: true)
             
             
             
