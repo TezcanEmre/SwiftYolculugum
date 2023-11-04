@@ -30,8 +30,34 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
         if SecilenDogName != "" {
             // core datadan veri çek
             if let stringUUID = secilenUUID?.uuidString {
-                print(stringUUID)
-            }
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                let context = appDelegate.persistentContainer.viewContext
+                let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "DogLister")
+                fetchRequest.predicate = NSPredicate(format: "id = %@", stringUUID)
+                fetchRequest.returnsObjectsAsFaults = false
+                do {
+                    let gelenVeriler = try context.fetch(fetchRequest)
+                    if gelenVeriler.count > 0 {
+                        for gelenVeri in gelenVeriler as! [NSManagedObject] {
+                            if let dogname = gelenVeri.value(forKey: "dogname") as? String {DogNameTextField.text = dogname}
+                            if let dogage = gelenVeri.value(forKey: "dogage") as? Int {DogAgeTextField.text = String(dogage) }
+                            if let dogbreed = gelenVeri.value(forKey: "dogbreed") as? String {DogBreedTextField.text = dogbreed}
+                            if let ownername = gelenVeri.value(forKey: "ownername") as? String {OwnerTextField.text = ownername }
+                            if let ownerphone = gelenVeri.value(forKey: "ownertel") as? String {OwnerPhoneTextField.text = ownerphone }
+                            if let vetname = gelenVeri.value(forKey: "vetname") as? String {VetTextField.text = vetname }
+                            if let vetphone = gelenVeri.value(forKey: "vettel") as? String {VetPhoneTextField.text = vetphone }
+                            if let imgData = gelenVeri.value(forKey: "dogimage") as? Data { let image = UIImage(data: imgData)
+                                ImageView.image = image }
+                        }
+                    
+                    }
+                }
+                catch {
+                    print("hata var")
+                }
+        }
+            
+            
         }
         else {
             DogNameTextField.text = ""

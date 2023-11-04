@@ -2,6 +2,10 @@
 //  ViewController.swift
 //  Dog Lister
 //
+
+
+// KENDİME İT KAYIT UYGULAMASI YAPTIM (TABİİ BAKARAK YAZDIĞIM KODLARA BAK Bİ BOK ANLAMADIM AĞLAMAK İSTİYORUM )
+
 //  Created by Tezcan on 1.11.2023.
 //
 
@@ -33,7 +37,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         TableView.dataSource = self
         // navigation Controller'a veri ekleme butonu ekledim.
         navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(addButtonClicked))
-        getData()
+        getData() //getData fonksiyonunu çağırıyoruz
                 
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -50,33 +54,37 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         fetchRequest.returnsObjectsAsFaults = false //Caching de fayda sağlar büyük verilerde
         do {
            let gelenVeriler = try context.fetch(fetchRequest) // gelen verileri atama yapıyoruz
-            for gelenVeri in gelenVeriler as! [NSManagedObject] { //gelen veri adında for döngüsü
-                if let dogname = gelenVeri.value(forKey: "dogname") as? String { //dogname verileri eğer string oluyorsa dogname değişkenine atanıyor
-                    dognameArray.append(dogname)
+            if gelenVeriler.count > 0 {
+                for gelenVeri in gelenVeriler as! [NSManagedObject] { //gelen veri adında for döngüsü
+                    if let dogname = gelenVeri.value(forKey: "dogname") as? String { //dogname verileri eğer string oluyorsa dogname değişkenine atanıyor
+                        dognameArray.append(dogname)
+                    }
+                    if let id = gelenVeri.value(forKey: "id") as? UUID { // Coredata nın ayarladığı UUID verilerini NSobject den çıkarıp UUID olarak atama yapıyor
+                        idArray.append(id)
+                    }
+                    // viewdidload'a getData fonksiyonunu yazmadığım için çalışmıyormuş :D
+                    TableView.reloadData() // viewwillappear a eklenmeli
                 }
-                if let id = gelenVeri.value(forKey: "id") as? UUID { // Coredata nın ayarladığı UUID verilerini NSobject den çıkarıp UUID olarak atama yapıyor
-                    idArray.append(id)
-                }
-                // viewdidload'a getData fonksiyonunu yazmadığım için çalışmıyormuş :D
-                TableView.reloadData() // viewwillappear a eklenmeli
             }
+            
         }
         catch {
             print("hata var")
         }
         
     }
-    // segue de sorun var secondVC ye geçmiyor kodları incelemem gerek
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toSecondVC" {
             let destinationVC = segue.destination as! SecondViewController
             destinationVC.SecilenDogName = SecilenKopek
             destinationVC.secilenUUID = SecilenUUID2
-        }
+                    }
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { // performsegue yi buraya eklemeyi unuttuğum için çalışmıyormuş :d
         SecilenKopek = dognameArray[indexPath.row]
         SecilenUUID2 = idArray[indexPath.row]
+        performSegue(withIdentifier: "toSecondVC", sender: nil)
+
     }
     @objc func addButtonClicked () { //veri ekleme butonuna tıklanınca diğer VC ye geçen objc kodu
         SecilenKopek = ""
