@@ -19,22 +19,38 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var OwnerPhoneTextField: UITextField!
     @IBOutlet weak var VetPhoneTextField: UITextField!
     
-    
+    var SecilenDogName = ""
+    var secilenUUID: UUID?
     
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if SecilenDogName != "" {
+            // core datadan veri çek
+            if let stringUUID = secilenUUID?.uuidString {
+                print(stringUUID)
+            }
+        }
+        else {
+            DogNameTextField.text = ""
+            DogAgeTextField.text = ""
+            DogBreedTextField.text = ""
+            OwnerTextField.text = ""
+            VetTextField.text = ""
+            OwnerPhoneTextField.text = ""
+            VetPhoneTextField.text = ""
+        }
 
         //ViewDidLoad a herhangi bir yere tıklanınca klavyeyi gizlemesi için gesture recognizer
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         view.addGestureRecognizer(gestureRecognizer)
-        ImageView.isUserInteractionEnabled = true
+        ImageView.isUserInteractionEnabled = true //imageview etkileşime açan kod
         let imageGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(takeImage))
         ImageView.addGestureRecognizer(imageGestureRecognizer)
     }
-    @objc func takeImage() {
+    @objc func takeImage() { //ayarlanan kaynaktan fotoğrafı alan objc kodu
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.sourceType = .photoLibrary
@@ -42,7 +58,7 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
         present(picker, animated: true, completion: nil)
         
     }
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) { //görseli aldıktan sonra picker ı kapatıyor
         ImageView?.image = info[.originalImage] as? UIImage
         self.dismiss(animated: true, completion: nil)
     }
@@ -52,7 +68,7 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
         
     }
     @IBAction func SaveButtonClicked(_ sender: Any) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate // verileri kaydetmek ve context i kullanmak için tanımladık
         let context = appDelegate.persistentContainer.viewContext
         let Dog_Lister = NSEntityDescription.insertNewObject(forEntityName: "DogLister", into: context)
         Dog_Lister.setValue(DogNameTextField.text!, forKey: "dogname")
@@ -73,8 +89,10 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
             print("kaydedildi")
         }
         catch { print("hata")}
+        NotificationCenter.default.post(name: NSNotification.Name("dataAccepted"), object: nil)
+        self.navigationController?.popViewController(animated: true)
+
     }
-    
     
 
 }
