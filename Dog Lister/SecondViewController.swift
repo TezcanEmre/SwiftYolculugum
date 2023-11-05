@@ -3,7 +3,7 @@
 //  Dog Lister
 //
 //  Created by Tezcan on 1.11.2023.
-//
+// Ekran döndürme ve diğer görünümler devre dışı bırakıldı, secondVC'de dinamik hale getirilince bu özellik de eklenecek
 
 import UIKit
 import CoreData
