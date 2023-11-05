@@ -20,30 +20,30 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var VetPhoneTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
     
-    var SecilenDogName = ""
-    var secilenUUID: UUID?
+    var chosenDogName = ""
+    var chosenUUID: UUID?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if SecilenDogName != "" { /** core datadan veri çek */ saveButton.isHidden = true
-             if let stringUUID = secilenUUID?.uuidString {
+        if chosenDogName != "" { /** core datadan veri çek */ saveButton.isHidden = true
+             if let stringUUID = chosenUUID?.uuidString {
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
                 let context = appDelegate.persistentContainer.viewContext
                 let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "DogLister")
                 fetchRequest.predicate = NSPredicate(format: "id = %@", stringUUID)
                 fetchRequest.returnsObjectsAsFaults = false
                 do {
-                    let gelenVeriler = try context.fetch(fetchRequest)
-                    if gelenVeriler.count > 0 {
-                        for gelenVeri in gelenVeriler as! [NSManagedObject] {
-                            if let dogname = gelenVeri.value(forKey: "dogname") as? String {DogNameTextField.text = dogname}
-                            if let dogage = gelenVeri.value(forKey: "dogage") as? Int {DogAgeTextField.text = String(dogage) }
-                            if let dogbreed = gelenVeri.value(forKey: "dogbreed") as? String {DogBreedTextField.text = dogbreed}
-                            if let ownername = gelenVeri.value(forKey: "ownername") as? String {OwnerTextField.text = ownername }
-                            if let ownerphone = gelenVeri.value(forKey: "ownertel") as? String {OwnerPhoneTextField.text = ownerphone }
-                            if let vetname = gelenVeri.value(forKey: "vetname") as? String {VetTextField.text = vetname }
-                            if let vetphone = gelenVeri.value(forKey: "vettel") as? String {VetPhoneTextField.text = vetphone }
-                            if let imgData = gelenVeri.value(forKey: "dogimage") as? Data { let image = UIImage(data: imgData)
+                    let receivedDatas = try context.fetch(fetchRequest)
+                    if receivedDatas.count > 0 {
+                        for receivedData in receivedDatas as! [NSManagedObject] {
+                            if let dogname = receivedData.value(forKey: "dogname") as? String {DogNameTextField.text = dogname}
+                            if let dogage = receivedData.value(forKey: "dogage") as? Int {DogAgeTextField.text = String(dogage) }
+                            if let dogbreed = receivedData.value(forKey: "dogbreed") as? String {DogBreedTextField.text = dogbreed}
+                            if let ownername = receivedData.value(forKey: "ownername") as? String {OwnerTextField.text = ownername }
+                            if let ownerphone = receivedData.value(forKey: "ownertel") as? String {OwnerPhoneTextField.text = ownerphone }
+                            if let vetname = receivedData.value(forKey: "vetname") as? String {VetTextField.text = vetname }
+                            if let vetphone = receivedData.value(forKey: "vettel") as? String {VetPhoneTextField.text = vetphone }
+                            if let imgData = receivedData.value(forKey: "dogimage") as? Data { let image = UIImage(data: imgData)
                                 ImageView.image = image }                  }
                                               }
                 }
@@ -100,5 +100,9 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
         catch { print("hata") }
         NotificationCenter.default.post(name: NSNotification.Name("dataAccepted"), object: nil)
         self.navigationController?.popViewController(animated: true)
+        let alertMsg = UIAlertController(title: "System Message", message: "All datas saved succesfully!", preferredStyle: UIAlertController.Style.alert)
+        let alertButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default)
+        alertMsg.addAction(alertButton)
+        self.present(alertMsg, animated: true, completion: nil)
                                                 }
     }
