@@ -25,6 +25,7 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupKeyboardHiding() /** bu fonksiyon klavyeyi açtığında view ı 200 pixel kaydırıyor */
         if chosenDogName != "" { /** core datadan veri çek */ saveButton.isHidden = true
              if let stringUUID = chosenUUID?.uuidString {
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -58,7 +59,7 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
             OwnerPhoneTextField.text = ""
             VetPhoneTextField.text = "" }
         //ViewDidLoad a herhangi bir yere tıklanınca klavyeyi gizlemesi için gesture recognizer
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard2))
         view.addGestureRecognizer(gestureRecognizer)
         ImageView.isUserInteractionEnabled = true //imageview etkileşime açan kod
         let imageGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(takeImage))
@@ -76,7 +77,21 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
         saveButton.isEnabled = true
         self.dismiss(animated: true, completion: nil) }
     
-    @objc func hideKeyboard() { //Gesture recognizer ın çalıştıracağı klavyeyi gizleyen objc kodu
+    func setupKeyboardHiding() {
+        /** https://www.youtube.com/watch?v=O4tP7egAV1I kaynak burası daha sonra döneceğim şu an bu kod çalışıyor ancak 2 text field a tıklanınca ekstra view kayıyor. Bunu dinamik hale getirmek lazım ancak başlangıç aşamasında bu kalabilir */
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardShifting), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil) }
+    
+    @objc func keyboardShifting(sender: NSNotification) {
+        view.frame.origin.y = view.frame.origin.y - 200}
+     
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+     view.frame.origin.y = 0 }
+     
+    
+    
+    @objc func hideKeyboard2() { //Gesture recognizer ın çalıştıracağı klavyeyi gizleyen objc kodu
         view.endEditing(true) }
     
     @IBAction func SaveButtonClicked(_ sender: Any) {
