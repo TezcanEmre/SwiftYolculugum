@@ -18,18 +18,15 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var VetTextField: UITextField!
     @IBOutlet weak var OwnerPhoneTextField: UITextField!
     @IBOutlet weak var VetPhoneTextField: UITextField!
+    @IBOutlet weak var saveButton: UIButton!
     
     var SecilenDogName = ""
     var secilenUUID: UUID?
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        if SecilenDogName != "" {
-            // core datadan veri çek
-            if let stringUUID = secilenUUID?.uuidString {
+        if SecilenDogName != "" { /** core datadan veri çek */ saveButton.isHidden = true
+             if let stringUUID = secilenUUID?.uuidString {
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
                 let context = appDelegate.persistentContainer.viewContext
                 let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "DogLister")
@@ -47,28 +44,19 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
                             if let vetname = gelenVeri.value(forKey: "vetname") as? String {VetTextField.text = vetname }
                             if let vetphone = gelenVeri.value(forKey: "vettel") as? String {VetPhoneTextField.text = vetphone }
                             if let imgData = gelenVeri.value(forKey: "dogimage") as? Data { let image = UIImage(data: imgData)
-                                ImageView.image = image }
-                        }
-                    
-                    }
+                                ImageView.image = image }                  }
+                                              }
                 }
-                catch {
-                    print("hata var")
-                }
-        }
-            
-            
-        }
-        else {
+                catch { print("hata var") }
+                                                   }                                 }
+        else { saveButton.isHidden = false ; saveButton.isEnabled = false
             DogNameTextField.text = ""
             DogAgeTextField.text = ""
             DogBreedTextField.text = ""
             OwnerTextField.text = ""
             VetTextField.text = ""
             OwnerPhoneTextField.text = ""
-            VetPhoneTextField.text = ""
-        }
-
+            VetPhoneTextField.text = "" }
         //ViewDidLoad a herhangi bir yere tıklanınca klavyeyi gizlemesi için gesture recognizer
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         view.addGestureRecognizer(gestureRecognizer)
@@ -81,26 +69,22 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
         picker.delegate = self
         picker.sourceType = .photoLibrary
         picker.allowsEditing = false
-        present(picker, animated: true, completion: nil)
-        
-    }
+        present(picker, animated: true, completion: nil) }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) { //görseli aldıktan sonra picker ı kapatıyor
         ImageView?.image = info[.originalImage] as? UIImage
-        self.dismiss(animated: true, completion: nil)
-    }
+        saveButton.isEnabled = true
+        self.dismiss(animated: true, completion: nil) }
     
     @objc func hideKeyboard() { //Gesture recognizer ın çalıştıracağı klavyeyi gizleyen objc kodu
-        view.endEditing(true)
-        
-    }
+        view.endEditing(true) }
+    
     @IBAction func SaveButtonClicked(_ sender: Any) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate // verileri kaydetmek ve context i kullanmak için tanımladık
         let context = appDelegate.persistentContainer.viewContext
         let Dog_Lister = NSEntityDescription.insertNewObject(forEntityName: "DogLister", into: context)
         Dog_Lister.setValue(DogNameTextField.text!, forKey: "dogname")
-        if let age = Int(DogAgeTextField.text!) {
-            Dog_Lister.setValue(age, forKey: "dogage")
-        }
+        if let age = Int(DogAgeTextField.text!) { Dog_Lister.setValue(age, forKey: "dogage") }
         Dog_Lister.setValue(DogBreedTextField.text!, forKey: "dogbreed")
         Dog_Lister.setValue(OwnerTextField.text!, forKey: "ownername")
         Dog_Lister.setValue(OwnerPhoneTextField.text!, forKey: "ownertel")
@@ -112,13 +96,9 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         do {
             try context.save()
-            print("kaydedildi")
-        }
-        catch { print("hata")}
+            print("kaydedildi") }
+        catch { print("hata") }
         NotificationCenter.default.post(name: NSNotification.Name("dataAccepted"), object: nil)
         self.navigationController?.popViewController(animated: true)
-
+                                                }
     }
-    
-
-}
