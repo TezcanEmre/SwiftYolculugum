@@ -99,9 +99,8 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
             print("kaydedildi") }
         catch { print("hata") }
         NotificationCenter.default.post(name: NSNotification.Name("dataAccepted"), object: nil)
-        self.navigationController?.popViewController(animated: true)
         let alertMsg = UIAlertController(title: "System Message", message: "All datas saved succesfully!", preferredStyle: UIAlertController.Style.alert)
-        let alertButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default)
+        let alertButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) { (UIAlertAction) in self.navigationController?.popViewController(animated: true) }
         alertMsg.addAction(alertButton)
         self.present(alertMsg, animated: true, completion: nil)
                                                 }
