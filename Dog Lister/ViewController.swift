@@ -54,12 +54,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if segue.identifier == "toSecondVC" {
             let destinationVC = segue.destination as! SecondViewController
             destinationVC.chosenDogName = chosenDog
-            destinationVC.chosenUUID = chosenUUID2 } }
+            destinationVC.chosenUUID = chosenUUID2 }
+            else if segue.identifier == "toDetailsVC" {
+                let destinationVC = segue.destination as! DetailsViewController
+                destinationVC.chosenDogName2 = chosenDog
+                destinationVC.chosenUUID3 = chosenUUID2 }
+        }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { // performsegue yi buraya eklemeyi unuttuğum için çalışmıyormuş :d
         chosenDog = dognameArray[indexPath.row]
         chosenUUID2 = idArray[indexPath.row]
-        performSegue(withIdentifier: "toSecondVC", sender: nil) }
+        performSegue(withIdentifier: "toDetailsVC", sender: nil) }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         let alertMSG = UIAlertController(title: "Warning!", message: "Selected data will removed permanetly", preferredStyle: UIAlertController.Style.alert)

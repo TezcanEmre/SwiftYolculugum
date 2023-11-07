@@ -15,6 +15,7 @@
 		ECA2CDA92AF29D7300D73403 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECA2CDA82AF29D7300D73403 /* Assets.xcassets */; };
 		ECA2CDAC2AF29D7300D73403 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECA2CDAA2AF29D7300D73403 /* LaunchScreen.storyboard */; };
 		ECA2CDB42AF2A28200D73403 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA2CDB32AF2A28200D73403 /* SecondViewController.swift */; };
+		ECCCE23D2AFA6779001F01B3 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCCE23C2AFA6779001F01B3 /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		ECA2CDAB2AF29D7300D73403 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECA2CDAD2AF29D7300D73403 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECA2CDB32AF2A28200D73403 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		ECCCE23C2AFA6779001F01B3 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				ECA2CDAA2AF29D7300D73403 /* LaunchScreen.storyboard */,
 				ECA2CDAD2AF29D7300D73403 /* Info.plist */,
 				ECA2CDA52AF29D7200D73403 /* Dog_Lister.xcdatamodeld */,
+				ECCCE23C2AFA6779001F01B3 /* DetailsViewController.swift */,
 			);
 			path = "Dog Lister";
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 				ECA2CD9F2AF29D7200D73403 /* SceneDelegate.swift in Sources */,
 				ECA2CDB42AF2A28200D73403 /* SecondViewController.swift in Sources */,
 				ECA2CDA72AF29D7200D73403 /* Dog_Lister.xcdatamodeld in Sources */,
+				ECCCE23D2AFA6779001F01B3 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
