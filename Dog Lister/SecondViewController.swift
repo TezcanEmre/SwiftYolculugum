@@ -19,7 +19,6 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var OwnerPhoneTextField: UITextField!
     @IBOutlet weak var VetPhoneTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupKeyboardHiding() /** bu fonksiyon klavyeyi açtığında view ı 200 pixel kaydırıyor */
@@ -56,7 +55,7 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
         view.endEditing(true) }
     
     @IBAction func SaveButtonClicked(_ sender: Any) {
-        if let age = Int(DogAgeTextField.text!) { 
+        if Int(DogAgeTextField.text!) != nil { 
             if DogBreedTextField.text == "" || OwnerTextField.text == "" || OwnerPhoneTextField.text == "" || VetTextField.text == "" || VetPhoneTextField.text == "" {
             let alertMsg2  = UIAlertController(title: "System Message", message: "Please fill all text lines", preferredStyle: UIAlertController.Style.alert)
             let alertButton2 = UIAlertAction(title: "OK", style: UIAlertAction.Style.default)
