@@ -16,7 +16,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var TableView: UITableView!
     var chosenDog = ""
-    var chosenUUID2 : UUID?
+    var chosenUUID : UUID?
     var dognameArray = [String]() // gelen NSobject deki isimleri diziye atayacağız
     var idArray = [UUID]() // UUID leri diziye atayacağz
     override func viewDidLoad() {
@@ -29,7 +29,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewWillAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(getData), name: NSNotification.Name("dataAccepted"), object: nil) }
-    
     @objc func getData() {
         dognameArray.removeAll(keepingCapacity: false)
         idArray.removeAll(keepingCapacity: false)
@@ -46,24 +45,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     if let id = receivedData.value(forKey: "id") as? UUID { /** Coredata nın ayarladığı UUID verilerini NSobject den çıkarıp UUID olarak atama yapıyor */ idArray.append(id) }
                     // viewdidload'a getData fonksiyonunu yazmadığım için çalışmıyormuş :D
                     TableView.reloadData() /**viewwillappear a eklenmeli */ }
-                                     }
-           }
-        catch { print("hata var") }
-        }
+                                     } }
+        catch { print("hata var") } }
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toSecondVC" {
-            let destinationVC = segue.destination as! SecondViewController
-            destinationVC.chosenDogName = chosenDog
-            destinationVC.chosenUUID = chosenUUID2 }
-            else if segue.identifier == "toDetailsVC" {
+            if segue.identifier == "toDetailsVC" {
                 let destinationVC = segue.destination as! DetailsViewController
                 destinationVC.chosenDogName2 = chosenDog
-                destinationVC.chosenUUID3 = chosenUUID2 }
-        }
+                destinationVC.chosenUUID2 = chosenUUID } }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { // performsegue yi buraya eklemeyi unuttuğum için çalışmıyormuş :d
         chosenDog = dognameArray[indexPath.row]
-        chosenUUID2 = idArray[indexPath.row]
+        chosenUUID = idArray[indexPath.row]
         performSegue(withIdentifier: "toDetailsVC", sender: nil) }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -96,7 +88,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.present(alertMSG, animated: true, completion: nil) }
     
     @objc func addButtonClicked () { //veri ekleme butonuna tıklanınca diğer VC ye geçen objc kodu
-        chosenDog = ""
-        performSegue(withIdentifier: "toSecondVC", sender: nil) }
+    performSegue(withIdentifier: "toSecondVC", sender: nil) }
 }
 

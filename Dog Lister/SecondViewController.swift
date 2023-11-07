@@ -20,44 +20,10 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var VetPhoneTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
     
-    var chosenDogName = ""
-    var chosenUUID: UUID?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupKeyboardHiding() /** bu fonksiyon klavyeyi açtığında view ı 200 pixel kaydırıyor */
-        if chosenDogName != "" { /** core datadan veri çek */ saveButton.isHidden = true
-             if let stringUUID = chosenUUID?.uuidString {
-                let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                let context = appDelegate.persistentContainer.viewContext
-                let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "DogLister")
-                fetchRequest.predicate = NSPredicate(format: "id = %@", stringUUID)
-                fetchRequest.returnsObjectsAsFaults = false
-                do {
-                    let receivedDatas = try context.fetch(fetchRequest)
-                    if receivedDatas.count > 0 {
-                        for receivedData in receivedDatas as! [NSManagedObject] {
-                            if let dogname = receivedData.value(forKey: "dogname") as? String {DogNameTextField.text = dogname}
-                            if let dogage = receivedData.value(forKey: "dogage") as? Int {DogAgeTextField.text = String(dogage) }
-                            if let dogbreed = receivedData.value(forKey: "dogbreed") as? String {DogBreedTextField.text = dogbreed}
-                            if let ownername = receivedData.value(forKey: "ownername") as? String {OwnerTextField.text = ownername }
-                            if let ownerphone = receivedData.value(forKey: "ownertel") as? String {OwnerPhoneTextField.text = ownerphone }
-                            if let vetname = receivedData.value(forKey: "vetname") as? String {VetTextField.text = vetname }
-                            if let vetphone = receivedData.value(forKey: "vettel") as? String {VetPhoneTextField.text = vetphone }
-                            if let imgData = receivedData.value(forKey: "dogimage") as? Data { let image = UIImage(data: imgData)
-                                ImageView.image = image }                  }
-                                              }
-                }
-                catch { print("hata var") }
-                                                   }                                 }
-        else { saveButton.isHidden = false ; saveButton.isEnabled = false
-            DogNameTextField.text = ""
-            DogAgeTextField.text = ""
-            DogBreedTextField.text = ""
-            OwnerTextField.text = ""
-            VetTextField.text = ""
-            OwnerPhoneTextField.text = ""
-            VetPhoneTextField.text = "" }
+        saveButton.isHidden = false ; saveButton.isEnabled = false
         //ViewDidLoad a herhangi bir yere tıklanınca klavyeyi gizlemesi için gesture recognizer
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard2))
         view.addGestureRecognizer(gestureRecognizer)
@@ -84,39 +50,48 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @objc func keyboardShifting(sender: NSNotification) {
         view.frame.origin.y = view.frame.origin.y - 200}
-     
-    
     @objc func keyboardWillHide(notification: NSNotification) {
      view.frame.origin.y = 0 }
-     
-    
-    
     @objc func hideKeyboard2() { //Gesture recognizer ın çalıştıracağı klavyeyi gizleyen objc kodu
         view.endEditing(true) }
     
     @IBAction func SaveButtonClicked(_ sender: Any) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate // verileri kaydetmek ve context i kullanmak için tanımladık
-        let context = appDelegate.persistentContainer.viewContext
-        let Dog_Lister = NSEntityDescription.insertNewObject(forEntityName: "DogLister", into: context)
-        Dog_Lister.setValue(DogNameTextField.text!, forKey: "dogname")
-        if let age = Int(DogAgeTextField.text!) { Dog_Lister.setValue(age, forKey: "dogage") }
-        Dog_Lister.setValue(DogBreedTextField.text!, forKey: "dogbreed")
-        Dog_Lister.setValue(OwnerTextField.text!, forKey: "ownername")
-        Dog_Lister.setValue(OwnerPhoneTextField.text!, forKey: "ownertel")
-        Dog_Lister.setValue(VetTextField.text!, forKey: "vetname")
-        Dog_Lister.setValue(VetPhoneTextField.text!, forKey: "vettel")
-        Dog_Lister.setValue(UUID(), forKey: "id")
-        let image = ImageView.image!.jpegData(compressionQuality: 0.6)
-        Dog_Lister.setValue(image, forKey: "dogimage")
-        
-        do {
-            try context.save()
-            print("kaydedildi") }
-        catch { print("hata") }
-        NotificationCenter.default.post(name: NSNotification.Name("dataAccepted"), object: nil)
-        let alertMsg = UIAlertController(title: "System Message", message: "All datas saved succesfully!", preferredStyle: UIAlertController.Style.alert)
-        let alertButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) { (UIAlertAction) in self.navigationController?.popViewController(animated: true) }
-        alertMsg.addAction(alertButton)
-        self.present(alertMsg, animated: true, completion: nil)
-                                                }
+        if let age = Int(DogAgeTextField.text!) { 
+            if DogBreedTextField.text == "" || OwnerTextField.text == "" || OwnerPhoneTextField.text == "" || VetTextField.text == "" || VetPhoneTextField.text == "" {
+            let alertMsg2  = UIAlertController(title: "System Message", message: "Please fill all text lines", preferredStyle: UIAlertController.Style.alert)
+            let alertButton2 = UIAlertAction(title: "OK", style: UIAlertAction.Style.default)
+            alertMsg2.addAction(alertButton2)
+            self.present(alertMsg2, animated: true, completion: nil)
+            return }
+            else {
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate // verileri kaydetmek ve context i kullanmak için tanımladık
+                let context = appDelegate.persistentContainer.viewContext
+                let Dog_Lister = NSEntityDescription.insertNewObject(forEntityName: "DogLister", into: context)
+                Dog_Lister.setValue(DogNameTextField.text!, forKey: "dogname")
+                if let age = Int(DogAgeTextField.text!) { Dog_Lister.setValue(age, forKey: "dogage") }
+                Dog_Lister.setValue(DogBreedTextField.text!, forKey: "dogbreed")
+                Dog_Lister.setValue(OwnerTextField.text!, forKey: "ownername")
+                Dog_Lister.setValue(OwnerPhoneTextField.text!, forKey: "ownertel")
+                Dog_Lister.setValue(VetTextField.text!, forKey: "vetname")
+                Dog_Lister.setValue(VetPhoneTextField.text!, forKey: "vettel")
+                Dog_Lister.setValue(UUID(), forKey: "id")
+                let image = ImageView.image!.jpegData(compressionQuality: 0.6)
+                Dog_Lister.setValue(image, forKey: "dogimage")
+                do {
+                    try context.save()
+                    print("kaydedildi") }
+                catch { print("hata") }
+                NotificationCenter.default.post(name: NSNotification.Name("dataAccepted"), object: nil)
+                let alertMsg = UIAlertController(title: "System Message", message: "All datas saved succesfully!", preferredStyle: UIAlertController.Style.alert)
+                let alertButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) { (UIAlertAction) in self.navigationController?.popViewController(animated: true) }
+                alertMsg.addAction(alertButton)
+                self.present(alertMsg, animated: true, completion: nil) }
+        }
+        else {
+            let alertMsg3 = UIAlertController(title: "Error!", message: "Please type a valid number!", preferredStyle: UIAlertController.Style.alert)
+            let alertButton3 = UIAlertAction(title: "OK", style: UIAlertAction.Style.default)
+            alertMsg3.addAction(alertButton3)
+            self.present(alertMsg3, animated: true, completion: nil)
+            return
+        } }
     }

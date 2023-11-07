@@ -12,13 +12,13 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var imageView2: UIImageView!
     @IBOutlet weak var textView: UITextView!
     var chosenDogName2 = ""
-    var chosenUUID3 : UUID?
+    var chosenUUID2 : UUID?
     var (string1, string2, string3, string4, string5, string6, string7) = ("","","","","","","")
     
     override func viewDidLoad() {
         super.viewDidLoad()
          if chosenDogName2 != "" { /** core datadan veri çek */
-         if let stringUUID = chosenUUID3?.uuidString {
+         if let stringUUID = chosenUUID2?.uuidString {
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let context = appDelegate.persistentContainer.viewContext
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "DogLister")
@@ -42,8 +42,6 @@ class DetailsViewController: UIViewController {
             catch { print("hata var") } }  }
         let combiendText = "\(string1)\n\(string2)\n\(string3)\n\(string4)\n\(string5)\n\(string6)\n\(string7)"
         textView.text = combiendText
-
-        
     }
     
 
