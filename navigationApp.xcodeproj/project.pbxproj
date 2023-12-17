@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC596D282B2F2D89003EF178 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC596D272B2F2D89003EF178 /* SecondViewController.swift */; };
+		EC596D2A2B2F425F003EF178 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC596D292B2F425F003EF178 /* ThirdViewController.swift */; };
 		EC770D532AFFCE7C004CCF50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC770D522AFFCE7C004CCF50 /* AppDelegate.swift */; };
 		EC770D552AFFCE7C004CCF50 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC770D542AFFCE7C004CCF50 /* SceneDelegate.swift */; };
 		EC770D572AFFCE7C004CCF50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC770D562AFFCE7C004CCF50 /* ViewController.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC596D272B2F2D89003EF178 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		EC596D292B2F425F003EF178 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		EC770D4F2AFFCE7C004CCF50 /* navigationApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = navigationApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC770D522AFFCE7C004CCF50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC770D542AFFCE7C004CCF50 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +66,8 @@
 				EC770D542AFFCE7C004CCF50 /* SceneDelegate.swift */,
 				EC770D562AFFCE7C004CCF50 /* ViewController.swift */,
 				EC770D582AFFCE7C004CCF50 /* Main.storyboard */,
+				EC596D292B2F425F003EF178 /* ThirdViewController.swift */,
+				EC596D272B2F2D89003EF178 /* SecondViewController.swift */,
 				EC770D5E2AFFCE7D004CCF50 /* Assets.xcassets */,
 				EC770D602AFFCE7D004CCF50 /* LaunchScreen.storyboard */,
 				EC770D632AFFCE7D004CCF50 /* Info.plist */,
@@ -144,6 +150,8 @@
 				EC770D572AFFCE7C004CCF50 /* ViewController.swift in Sources */,
 				EC770D532AFFCE7C004CCF50 /* AppDelegate.swift in Sources */,
 				EC770D552AFFCE7C004CCF50 /* SceneDelegate.swift in Sources */,
+				EC596D282B2F2D89003EF178 /* SecondViewController.swift in Sources */,
+				EC596D2A2B2F425F003EF178 /* ThirdViewController.swift in Sources */,
 				EC770D5D2AFFCE7C004CCF50 /* navigationApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
