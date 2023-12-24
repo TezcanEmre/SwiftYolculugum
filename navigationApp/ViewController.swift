@@ -48,6 +48,23 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             userLatitute = touchedCoordinate.latitude as Double
             userLongitute = touchedCoordinate.longitude as Double } }
     
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation { return nil }
+        let annotationId = "annotationId"
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationId)
+        
+        if pinView == nil {
+            pinView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier:annotationId)
+            pinView?.canShowCallout = true
+            pinView?.tintColor = .blue
+            let pinButton = UIButton(type: .detailDisclosure)
+            pinView?.leftCalloutAccessoryView = pinButton
+        }
+        else {
+            pinView?.annotation = annotation
+        }
+        return pinView
+    }    
     @IBAction func saveButton(_ sender: Any) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext

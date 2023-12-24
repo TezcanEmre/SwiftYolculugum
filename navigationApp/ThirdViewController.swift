@@ -30,7 +30,38 @@ class ThirdViewController: UIViewController, MKMapViewDelegate{
         annotation.subtitle = userNote2
         mapView2.addAnnotation(annotation)
     }
-    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation { return nil }
+        let annotationId = "annotationId"
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationId)
+        
+        if pinView == nil {
+            pinView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: annotationId)
+            pinView?.canShowCallout = true
+            pinView?.tintColor = .blue
+            let pinButton = UIButton(type: .detailDisclosure)
+            pinView?.leftCalloutAccessoryView = pinButton
+        }
+        else {
+            pinView?.annotation = annotation
+        }
+        return pinView
+    }
+    //Bu kod haritaya Apple Maps ile yol tarifi özelliği ekliyor
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        let requestLocation = CLLocation(latitude: coordinateX, longitude: coordinateY)
+        CLGeocoder().reverseGeocodeLocation(requestLocation) { (placemarkArray, hata) in
+            if let placemarks = placemarkArray {
+                if placemarks.count > 0 {
+                    let yeniPlacemark = MKPlacemark(placemark: placemarks[0])
+                    let item = MKMapItem(placemark: yeniPlacemark)
+                    item.name = self.locName2
+                    let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
+                    item.openInMaps(launchOptions: launchOptions)
+                }
+            }
+        }
+    }
     
   
 
