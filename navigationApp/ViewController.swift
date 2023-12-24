@@ -28,7 +28,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         locationManager.startUpdatingLocation()
         let gestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(takeLocation)) /** kullanıcı dokunduğunda haritada işaretleme yapıyor */
         gestureRecognizer.minimumPressDuration = 3
-        mapView.addGestureRecognizer(gestureRecognizer) }
+        mapView.addGestureRecognizer(gestureRecognizer)
+        let gestureRecognizer2 = UITapGestureRecognizer(target: self, action: #selector(stopEditing))
+        view.addGestureRecognizer(gestureRecognizer2)}
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = CLLocationCoordinate2D(latitude: locations[0].coordinate.latitude, longitude: locations[0].coordinate.longitude) /** kullanıcıdan alınan koordinatı CLLocation dizisinden çekiyoruz */
@@ -47,6 +49,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             mapView.addAnnotation(annotation)
             userLatitute = touchedCoordinate.latitude as Double
             userLongitute = touchedCoordinate.longitude as Double } }
+    @objc func stopEditing() { view.endEditing(true) }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation { return nil }
