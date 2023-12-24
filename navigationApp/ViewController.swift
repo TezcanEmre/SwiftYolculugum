@@ -32,7 +32,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = CLLocationCoordinate2D(latitude: locations[0].coordinate.latitude, longitude: locations[0].coordinate.longitude) /** kullanıcıdan alınan koordinatı CLLocation dizisinden çekiyoruz */
-        let span = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5) /**haritada gösterilecek alan */
+        let span = MKCoordinateSpan(latitudeDelta: 0.006, longitudeDelta: 0.006) /**haritada gösterilecek alan */
         let region = MKCoordinateRegion(center: location, span: span)
         mapView.setRegion(region, animated: true) }
     
@@ -61,7 +61,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         catch { print("error") } }
     
     @IBAction func databaseButton(_ sender: Any) {
-            }
+    func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "toDatabaseVC" {
+        _ = segue.destination as! SecondViewController } }
+        
+    }
     
 
 }

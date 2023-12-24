@@ -6,24 +6,33 @@
 //
 
 import UIKit
+import MapKit
+//import CoreLocation
 
-class ThirdViewController: UIViewController {
+class ThirdViewController: UIViewController, MKMapViewDelegate{
+    @IBOutlet weak var mapView2: MKMapView!
+    var locName2 = String()
+    var userNote2 = String()
+    var coordinateX = Double()
+    var coordinateY = Double()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        mapView2.delegate = self
+        let initialLocation = CLLocationCoordinate2D(latitude: coordinateX, longitude: coordinateY)
+        let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
+        let region = MKCoordinateRegion(center: initialLocation, span: span)
+        mapView2.setRegion(region, animated: true)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = initialLocation
+        annotation.title = locName2
+        annotation.subtitle = userNote2
+        mapView2.addAnnotation(annotation)
     }
     
+    
+  
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+   
 }
