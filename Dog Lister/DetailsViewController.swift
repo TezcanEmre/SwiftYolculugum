@@ -11,8 +11,10 @@ import CoreData
 class DetailsViewController: UIViewController {
     @IBOutlet weak var imageView2: UIImageView!
     @IBOutlet weak var textView: UITextView!
-    var chosenDogName2 = ""
+    var chosenDogName2 = String()
     var chosenUUID2 : UUID?
+    var locX = Double()
+    var locY = Double()
     var (string1, string2, string3, string4, string5, string6, string7) = ("","","","","","","")
     
     override func viewDidLoad() {
@@ -35,14 +37,31 @@ class DetailsViewController: UIViewController {
                         if let ownerphone = receivedData.value(forKey: "ownertel") as? String {string5 = ownerphone }
                         if let vetname = receivedData.value(forKey: "vetname") as? String {string6 = vetname }
                         if let vetphone = receivedData.value(forKey: "vettel") as? String {string7 = vetphone }
+                        if let locLatitue2 = receivedData.value(forKey: "latitute") as? Double {
+                             locX = locLatitue2 }
+                        if let locLongitute2 = receivedData.value(forKey: "longitute") as? Double {
+                             locY = locLongitute2 }
                         if let imgData = receivedData.value(forKey: "dogimage") as? Data { let image = UIImage(data: imgData)
                             imageView2.image = image } }
                                           }
             }
             catch { print("hata var") } }  }
         let combiendText = "\(string1)\n\(string2)\n\(string3)\n\(string4)\n\(string5)\n\(string6)\n\(string7)"
-        textView.text = combiendText
+        textView.text = combiendText }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toShowLocation" {
+            NotificationCenter.default.post(name: NSNotification.Name("showLocation"), object: nil)
+            let destinationVC = segue.destination as! MapViewController
+            destinationVC.locLatitue3 = locX
+            destinationVC.locLongitute3 = locY
+            destinationVC.locName = string1 } }
+    
+    @IBAction func toNavigationButton(_ sender: Any) {
+        NotificationCenter.default.post(name: NSNotification.Name("showLocation"), object: nil)
+        performSegue(withIdentifier: "toShowLocation", sender: nil)
     }
+    
     
 
    

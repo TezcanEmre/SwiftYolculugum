@@ -15,7 +15,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell }
     
     @IBOutlet weak var TableView: UITableView!
-    var chosenDog = ""
+    var chosenDog = String()
     var chosenUUID : UUID?
     var dognameArray = [String]() // gelen NSobject deki isimleri diziye atayacağız
     var idArray = [UUID]() // UUID leri diziye atayacağz
