@@ -3,7 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>to take locations</string>
+	<string>for taking location</string>
+	<key>NSLocationUsageDescription</key>
+	<string>for taking location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>for taking location</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

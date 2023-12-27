@@ -19,6 +19,7 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var OwnerPhoneTextField: UITextField!
     @IBOutlet weak var VetPhoneTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var locationButton: UIButton!
     var locLatitue1 = Double()
     var locLongitute1 = Double()
     var notifyCheck : Int8 = 0
@@ -32,17 +33,17 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
         ImageView.isUserInteractionEnabled = true //imageview etkileşime açan kod
         let imageGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(takeImage))
         ImageView.addGestureRecognizer(imageGestureRecognizer) }
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(receivedData), name: NSNotification.Name("locAccepted"), object: nil)
+    }
     
-   @objc func receivedData() {
+    @objc func receivedData() {
         locLatitue1 = DataTransferManager.shared.tempLatitute
         locLongitute1 = DataTransferManager.shared.tempLongitute
-        notifyCheck = 1 }
+        saveButton.isEnabled = true
+    notifyCheck = 1 }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toTakeLocation" {
-            let destinationVC = segue.destination as! MapViewController
-            destinationVC.locName = DogNameTextField.text! }
-    }
+    
     
     @objc func takeImage() { //ayarlanan kaynaktan fotoğrafı alan objc kodu
         let picker = UIImagePickerController()
@@ -69,10 +70,7 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
         view.endEditing(true) }
     
     @IBAction func locationButtonClicked(_ sender: Any) {
-        if DogNameTextField.text! != "" {
-            NotificationCenter.default.post(name: NSNotification.Name("takingLocation"), object: nil)
-            performSegue(withIdentifier: "toTakeLocation", sender: nil) }
-        else {
+        if DogNameTextField.text! == "" {
             let alertMsg4 = UIAlertController(title: "System Message", message: "Please fill Dog Name text line", preferredStyle: UIAlertController.Style.alert)
             let alertButton4 = UIAlertAction(title: "OK", style: UIAlertAction.Style.default)
             alertMsg4.addAction(alertButton4)

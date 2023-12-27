@@ -55,11 +55,11 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V6l-m1-5xA">
                                 <rect key="frame" x="0.0" y="103" width="393" height="188"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="188" id="SE5-aM-hVy"/>
+                                    <constraint firstAttribute="height" constant="188" id="dtz-71-HhF"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Yax-GV-cbL">
-                                <rect key="frame" x="0.0" y="299" width="393" height="476"/>
+                                <rect key="frame" x="0.0" y="299" width="393" height="287"/>
                                 <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                 <color key="tintColor" name="AccentColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -67,34 +67,33 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s23-ID-Yb7">
-                                <rect key="frame" x="138" y="783" width="117" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Navigation"/>
-                                <connections>
-                                    <action selector="toNavigationButton:" destination="l8J-Q4-gXY" eventType="touchUpInside" id="NPh-Xq-ga7"/>
-                                    <segue destination="FOU-gl-8wt" kind="show" identifier="toShowLocation" id="fXJ-Uu-x7V"/>
-                                </connections>
-                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HAa-yL-7gt">
+                                <rect key="frame" x="0.0" y="594" width="393" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="tOF-gQ-isz"/>
+                                </constraints>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lgZ-Aj-E0t"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="V6l-m1-5xA" firstAttribute="trailing" secondItem="Yax-GV-cbL" secondAttribute="trailing" id="9BU-2I-ehx"/>
-                            <constraint firstItem="s23-ID-Yb7" firstAttribute="bottom" secondItem="lgZ-Aj-E0t" secondAttribute="bottom" id="FHo-u8-16v"/>
-                            <constraint firstItem="Yax-GV-cbL" firstAttribute="top" secondItem="V6l-m1-5xA" secondAttribute="bottom" constant="8" id="JLV-J0-UtM"/>
-                            <constraint firstItem="V6l-m1-5xA" firstAttribute="leading" secondItem="lgZ-Aj-E0t" secondAttribute="leading" id="Noo-8d-ai6"/>
-                            <constraint firstItem="V6l-m1-5xA" firstAttribute="top" secondItem="lgZ-Aj-E0t" secondAttribute="top" id="QuL-Ol-6TV"/>
-                            <constraint firstItem="s23-ID-Yb7" firstAttribute="top" secondItem="Yax-GV-cbL" secondAttribute="bottom" constant="8" id="YII-zE-Mqd"/>
-                            <constraint firstItem="s23-ID-Yb7" firstAttribute="leading" secondItem="lgZ-Aj-E0t" secondAttribute="leading" constant="138" id="ac6-Sj-gq1"/>
-                            <constraint firstItem="V6l-m1-5xA" firstAttribute="leading" secondItem="Yax-GV-cbL" secondAttribute="leading" id="jBc-On-Obd"/>
-                            <constraint firstItem="V6l-m1-5xA" firstAttribute="centerX" secondItem="j0h-QV-Qha" secondAttribute="centerX" id="s4S-Rv-aug"/>
-                            <constraint firstItem="Yax-GV-cbL" firstAttribute="centerX" secondItem="s23-ID-Yb7" secondAttribute="centerX" id="xh3-Vc-Qoy"/>
+                            <constraint firstItem="Yax-GV-cbL" firstAttribute="trailing" secondItem="HAa-yL-7gt" secondAttribute="trailing" id="0bc-fT-YXg"/>
+                            <constraint firstItem="V6l-m1-5xA" firstAttribute="leading" secondItem="Yax-GV-cbL" secondAttribute="leading" id="0g5-vg-Ekl"/>
+                            <constraint firstItem="V6l-m1-5xA" firstAttribute="trailing" secondItem="Yax-GV-cbL" secondAttribute="trailing" id="8NB-Qm-5Do"/>
+                            <constraint firstItem="Yax-GV-cbL" firstAttribute="leading" secondItem="HAa-yL-7gt" secondAttribute="leading" id="C1i-tD-jg3"/>
+                            <constraint firstItem="lgZ-Aj-E0t" firstAttribute="bottom" secondItem="HAa-yL-7gt" secondAttribute="bottom" constant="8" id="D43-MN-x6v"/>
+                            <constraint firstItem="V6l-m1-5xA" firstAttribute="top" secondItem="lgZ-Aj-E0t" secondAttribute="top" id="FXd-Kw-5ea"/>
+                            <constraint firstItem="Yax-GV-cbL" firstAttribute="top" secondItem="V6l-m1-5xA" secondAttribute="bottom" constant="8" id="KUB-mS-Wv0"/>
+                            <constraint firstItem="V6l-m1-5xA" firstAttribute="centerX" secondItem="j0h-QV-Qha" secondAttribute="centerX" id="MmY-qw-sJB"/>
+                            <constraint firstItem="V6l-m1-5xA" firstAttribute="leading" secondItem="lgZ-Aj-E0t" secondAttribute="leading" id="UZc-Zv-B70"/>
+                            <constraint firstItem="HAa-yL-7gt" firstAttribute="top" secondItem="Yax-GV-cbL" secondAttribute="bottom" constant="8" id="r7p-W1-ARq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8zo-zr-jzJ"/>
                     <connections>
                         <outlet property="imageView2" destination="V6l-m1-5xA" id="E9f-OX-0ks"/>
+                        <outlet property="mapView" destination="HAa-yL-7gt" id="uih-RK-jk7"/>
                         <outlet property="textView" destination="Yax-GV-cbL" id="Vfs-cJ-Xzo"/>
                     </connections>
                 </viewController>
@@ -219,8 +218,8 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Take Location"/>
                                 <connections>
-                                    <action selector="locationButtonClicked:" destination="PA7-FN-t4L" eventType="touchUpInside" id="t91-7l-7xq"/>
-                                    <segue destination="FOU-gl-8wt" kind="show" identifier="toTakeLocation" id="8Sa-2C-uON"/>
+                                    <action selector="locationButtonClicked:" destination="PA7-FN-t4L" eventType="touchUpInside" id="t7X-Ng-6JD"/>
+                                    <segue destination="FOU-gl-8wt" kind="show" id="sHq-9G-0FQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2T9-bU-GOx">
@@ -281,6 +280,7 @@
                         <outlet property="OwnerTextField" destination="xJm-Id-R3D" id="A9S-8R-N15"/>
                         <outlet property="VetPhoneTextField" destination="nQn-JG-OCK" id="Y4h-kJ-45l"/>
                         <outlet property="VetTextField" destination="IVa-GT-N3s" id="b6b-V6-jNf"/>
+                        <outlet property="locationButton" destination="e9N-7p-4yg" id="aad-IO-GAp"/>
                         <outlet property="saveButton" destination="2T9-bU-GOx" id="bWw-ru-c59"/>
                     </connections>
                 </viewController>
@@ -307,9 +307,6 @@
             <point key="canvasLocation" x="130.53435114503816" y="-34.507042253521128"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="8Sa-2C-uON"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="upload-image-icon" width="509" height="513"/>
         <namedColor name="AccentColor">
